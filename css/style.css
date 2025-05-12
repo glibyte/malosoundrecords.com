@@ -104,10 +104,13 @@ nav a {
   width: 100%;
   text-align: center;
   z-index: 20;
-   /* Efecto glassmorphism */
-  background-color: rgba(26, 26, 26, 0.6); /* Color semitransparente */
-  backdrop-filter: blur(10px);             /* Desenfoque */
-  -webkit-backdrop-filter: blur(10px);     /* Soporte Safari */
+  /* Efecto glassmorphism */
+  background-color: rgba(26, 26, 26, 0.6);
+  /* Color semitransparente */
+  backdrop-filter: blur(10px);
+  /* Desenfoque */
+  -webkit-backdrop-filter: blur(10px);
+  /* Soporte Safari */
 }
 
 .mobile-nav a {
@@ -226,6 +229,7 @@ nav a {
 #musica {
   background-color: #111;
 }
+
 .videos-grid {
   padding-top: 10px;
   display: flex;
@@ -234,20 +238,36 @@ nav a {
   justify-content: center;
 }
 
-.video-wrapper {
-  flex: 0 1 100%;
-  max-width: 220px;
-  height: 350px; /* Ajusta a la altura que desees */
+.youtube-placeholder {
   position: relative;
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 9 / 16;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.video-wrapper iframe {
+.youtube-placeholder::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+  width: 68px;
+  height: 48px;
+  background: url('https://img.icons8.com/ios-filled/100/play-button-circled--v1.png') no-repeat center;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.youtube-placeholder:hover::before {
+  opacity: 1;
 }
 
 .music-platforms a {
@@ -382,6 +402,7 @@ footer {
   .hero p {
     font-size: 18px;
   }
+
   .section {
     padding: 80px 20px;
   }
