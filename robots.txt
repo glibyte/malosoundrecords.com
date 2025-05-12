@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://malosoundrecords.com/sitemap.xml
