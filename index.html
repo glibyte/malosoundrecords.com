@@ -51,10 +51,15 @@
       }
     }
     </script>
-
+    <link rel="preload" as="image" href="img/hero-fallback-desktop.webp" type="image/webp">
+    <link rel="preload" as="image" href="img/hero-fallback-mobile.webp" type="image/webp">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="img/icons/icomoon/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v25/JTUQjIg1_i6t8kCHKm45_QpRyS7m0dR9pBOi.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -64,7 +69,7 @@
             <div class="logo">MALOSOUND</div>
             <div class="slogan">R E C O R D S</div>
         </div>
-        <nav>
+        <nav aria-label="Menú principal">
             <a href="#artistas">Artistas</a>
             <a href="#musica">Música</a>
             <a href="#demo">Demo</a>
@@ -86,13 +91,11 @@
     </header>
 
     <section class="hero">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="video/hero-video-720.mp4" type="video/mp4" media="(min-width: 768px)">
-            <source src="video/hero-video-540.mp4" type="video/mp4" media="(max-width: 767px)">
+        <video id="bg-video" muted loop playsinline class="bg-video" preload="none">
             Tu navegador no soporta video HTML5.
         </video>
         <div class="hero-content">
-            <img src="img/logo.png" alt="Logo MALOSOUND" class="hero-logo" />
+            <img src="img/logo.png" alt="Logo MALOSOUND" class="hero-logo" width="120" height="120"/>
             <h1>Desde la cochera pa’l mundo, con la raza de siempre</h1>
             <p>Trap, R&B, Rap y sangre latina de la nueva era. Esto es MALOSOUND RECORDS.</p>
         </div>
@@ -101,16 +104,16 @@
     <section class="section lanzamiento">
         <h2>🔥 Último Lanzamiento</h2>
         <div class="lanzamiento-contenido">
-            <img src="img/cover/ultimo-lanzamiento.webp" loading="lazy" alt="Portada del lanzamiento">
+            <img src="img/cover/ultimo-lanzamiento.webp" loading="lazy" alt="Portada del lanzamiento" width="250" height="250">
             <div class="lanzamiento-info">
                 <h3>"Buenos Humos EP" – Bryan Gunner</h3>
                 <p>Disponible en todas las plataformas. Escúchalo ahora:</p>
-                <a href="https://soundcloud.com/malosound-records/sets/buenos-humos" class="btn"
-                    target="_blank">Escuchar en SoundCloud</a>
+                <a href="https://soundcloud.com/malosound-records/sets/buenos-humos" class="btn" target="_blank"
+                    rel="noopener noreferrer">Escuchar en SoundCloud</a>
                 <a href="https://open.spotify.com/intl-es/album/33xCPagtwA59cdmHFnCgPB" class="btn btn-alt"
-                    target="_blank">Spotify <i class="fab fa-spotify"></i></a>
+                    target="_blank" rel="noopener noreferrer">Spotify <i class="icon-spotify"></i></a>
                 <a href="https://music.apple.com/us/album/buenos-humos-ep/1807236478" class="btn btn-alt"
-                    target="_blank">iTunes <i class="fab fa-apple"></i></a>
+                    target="_blank" rel="noopener noreferrer">iTunes <i class="icon-apple"></i></a>
             </div>
         </div>
     </section>
@@ -119,12 +122,12 @@
         <h2>Próximos Estrenos</h2>
         <div class="proximos-grid">
             <div class="proximo-item">
-                <img src="cover-proximo1.jpg" loading="lazy" alt="Portada tema 1">
+             <!--   <img src="cover-proximo1.jpg" loading="lazy" alt="Portada tema 1">-->
                 <h3>"Sin Miedo" – Sagrado M</h3>
                 <p>Lanzamiento: 2 de junio</p>
             </div>
             <div class="proximo-item">
-                <img src="cover-proximo2.jpg" loading="lazy" alt="Portada tema 2">
+            <!--    <img src="cover-proximo2.jpg" loading="lazy" alt="Portada tema 2">-->
                 <h3>"Noche Sin Ley" – Sagrado M</h3>
                 <p>Lanzamiento: 2 de junio</p>
             </div>
@@ -137,33 +140,37 @@
             <div class="artist">
                 <img src="img/artists/400x400/yovng-carl.webp" loading="lazy"
                     srcset="img/artists/200x200/yovng-carl.webp 200w, img/artists/400x400/yovng-carl.webp 400w"
-                    sizes="(max-width: 600px) 100px, 160px" alt="Yovng Carl" class="artist-img" />
+                    sizes="(max-width: 600px) 100px, 160px" alt="Yovng Carl" class="artist-img" 
+                    width="160" height="160"/>
                 <h3>Yovng Carl</h3>
                 <p class="rol">Trap</p>
             </div>
             <div class="artist">
                 <img src="img/artists/400x400/sagrado-m.webp" loading="lazy"
                     srcset="img/artists/200x200/sagrado-m.webp 200w, img/artists/400x400/sagrado-m.webp 400w"
-                    sizes="(max-width: 600px) 100px, 160px" alt="Sagrado M" class="artist-img" />
+                    sizes="(max-width: 600px) 100px, 160px" alt="Sagrado M" class="artist-img" 
+                    width="160" height="160"/>
                 <h3>Sagrado M</h3>
                 <p class="rol">Rap</p>
             </div>
             <div class="artist">
                 <img src="img/artists/400x400/pulmon-negro.webp" loading="lazy"
                     srcset="img/artists/200x200/pulmon-negro.webp 200w, img/artists/400x400/pulmon-negro.webp 400w"
-                    sizes="(max-width: 600px) 100px, 160px" alt="Pulmón Negro" class="artist-img" />
+                    sizes="(max-width: 600px) 100px, 160px" alt="Pulmón Negro" class="artist-img" 
+                    width="160" height="160"/>
                 <h3>Pulmón Negro</h3>
                 <p class="rol">Rap</p>
             </div>
             <div class="artist">
-                <img src="img/artists/bryan-gunner.webp" loading="lazy" alt="Bryan Gunner" class="artist-img">
+              <!--  <img src="img/artists/bryan-gunner.webp" loading="lazy" alt="Bryan Gunner" class="artist-img">-->
                 <h3>Bryan Gunner</h3>
                 <p class="rol">Rap</p>
             </div>
             <div class="artist ceo">
                 <img src="img/artists/400x400/redmalo.webp" loading="lazy"
                     srcset="img/artists/200x200/redmalo.webp 200w, img/artists/400x400/redmalo.webp 400w"
-                    sizes="(max-width: 600px) 100px, 160px" alt="REDMALO" class="artist-img" />
+                    sizes="(max-width: 600px) 100px, 160px" alt="REDMALO" class="artist-img" 
+                    width="160" height="160"/>
                 <h3>REDMALO</h3>
                 <p class="rol">CEO / Productor Ejecutivo</p>
             </div>
@@ -173,9 +180,10 @@
     <section class="section" id="musica">
         <h2>Escucha Nuestra Música</h2>
         <div class="music-platforms">
-            <a href="https://soundcloud.com/malosound-records" target="_blank">SoundCloud <i
-                    class="fab fa-soundcloud"></i></a>
-            <a href="https://www.youtube.com/@MALOSRecords" target="_blank">YouTube <i class="fab fa-youtube"></i></a>
+            <a href="https://soundcloud.com/malosound-records" target="_blank" rel="noopener noreferrer">SoundCloud <i
+                    class="icon-soundcloud"></i></a>
+            <a href="https://www.youtube.com/@MALOSRecords" target="_blank" rel="noopener noreferrer">YouTube <i
+                    class="icon-youtube"></i></a>
         </div>
         <div class="videos-grid">
             <div class="youtube-placeholder" data-video-id="oc-w-1Aqy78" aria-label="Video: Yovng Carl"></div>
@@ -187,26 +195,27 @@
     <section class="section" id="demo">
         <h2>¿Tienes Talento?</h2>
         <p>Envía tu demo y sé parte de la nueva generación del sonido urbano.</p>
-        <a class="demo-link" href="https://forms.gle/25sdbwxDbsdGGs3i9" target="_blank">Enviar Demo</a>
+        <a class="demo-link" href="https://forms.gle/25sdbwxDbsdGGs3i9" target="_blank" rel="noopener noreferrer">Enviar
+            Demo</a>
     </section>
 
     <footer id="contacto">
-        <img src="img/logo.png" alt="Logo principal de MALOSOUND RECORDS" class="footer-logo" />
+        <img src="img/logo.png" alt="Logo principal de MALOSOUND RECORDS" class="footer-logo" width="80" height="80"/>
         <p>Síguenos en nuestras redes sociales:</p>
         <div class="socials">
-            <a href="https://www.facebook.com/MALOSRecords" target="_blank" aria-label="Facebook"><i
-                    class="fab fa-facebook"></i></a> |
-            <a href="https://www.instagram.com/malosrecords/" target="_blank" aria-label="Instagram"><i
-                    class="fab fa-instagram"></i></a> |
-            <a href="https://www.tiktok.com/@malosrecords" target="_blank" aria-label="TikTok"><i
-                    class="fab fa-tiktok"></i></a> |
-            <a href="https://www.youtube.com/@MALOSRecords" target="_blank" aria-label="YouTube"><i
-                    class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/MALOSRecords" target="_blank" aria-label="Facebook"
+                rel="noopener noreferrer"><i class="icon-facebook"></i></a> |
+            <a href="https://www.instagram.com/malosrecords/" target="_blank" aria-label="Instagram"
+                rel="noopener noreferrer"><i class="icon-instagram"></i></a> |
+            <a href="https://www.tiktok.com/@malosrecords" target="_blank" aria-label="TikTok"
+                rel="noopener noreferrer"><i class="icon-tiktok"></i></a> |
+            <a href="https://www.youtube.com/@MALOSRecords" target="_blank" aria-label="YouTube"
+                rel="noopener noreferrer"><i class="icon-youtube"></i></a>
         </div>
         <p>&copy; 2025 MALOSOUND RECORDS. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 
 </html>
