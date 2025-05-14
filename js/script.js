@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     video.load();
     video.play().catch(() => { }); // Silenciar errores si autoplay falla
   });
-  
+
   // Toggle menú móvil
   toggle.addEventListener('click', () => {
     mobileNav.classList.toggle('show');
@@ -45,14 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   placeholders.forEach(el => {
     const videoId = el.dataset.videoId;
+    const videoTitle = el.dataset.videoTitle || "Video"; // fallback
     const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     const localthumbnail = `img/thumbnail/${videoId}/hqdefault.jpg`;
 
     el.style.backgroundImage = `url('${localthumbnail}')`;
 
-    el.addEventListener("click", () => {
+    // Accesibilidad
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", `Reproducir video: ${videoTitle}`);
+
+    // Click y teclado
+    const activateVideo = () => {
       const iframe = document.createElement("iframe");
-      iframe.setAttribute("title", "YouTube video");
+      iframe.setAttribute("title", `YouTube video: ${videoTitle}`);
       iframe.setAttribute("src", `https://www.youtube.com/embed/${videoId}?autoplay=1`);
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute("allowfullscreen", "");
@@ -66,6 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       el.innerHTML = "";
       el.appendChild(iframe);
+    };
+
+    el.addEventListener("click", activateVideo);
+
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activateVideo();
+      }
     });
   });
 });
