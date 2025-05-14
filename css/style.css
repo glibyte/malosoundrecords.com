@@ -257,7 +257,7 @@ nav a {
   position: absolute;
   width: 68px;
   height: 48px;
-  background: url('img/icons/play-btn.png') no-repeat center;
+  background: url('../img/icons/play-btn.png') no-repeat center;
   background-size: contain;
   top: 50%;
   left: 50%;
