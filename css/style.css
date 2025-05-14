@@ -426,3 +426,11 @@ footer {
     letter-spacing: 4px;
   }
 }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('../img/icons/icomoon/fonts/icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
